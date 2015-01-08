@@ -1,0 +1,21 @@
+<h1> EDIT CAR</h1>
+
+<%= form_for @garage do |f| %>
+
+	Date: <%= f.date_field :date %>
+	Year: <%= f.month_field :year %>
+	Make: <%= f.text_field :make %>
+	model: <%= f.text_field :model %>
+	price: <%= f.text_field :price %>
+	mileage: <%= f.text_field :mileage %>
+	phone: <%= f.text_field :phone %>
+	email: <%= f.email_field :email %>
+	comments: <%= f.text_field :comments %>
+	
+
+
+<%= f.submit "EDIT CAR" %>
+
+<% end %>
+
+<%= link_to "Back to the list", garages_path %>
