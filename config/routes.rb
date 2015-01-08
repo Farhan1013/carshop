@@ -1,17 +1,28 @@
 Rails.application.routes.draw do
 
-get 'garages/' => 'garages#index'
+    get 'signup', to: 'users#new', as: 'signup'
+    get 'login', to: 'sessions#new', as: 'login'
+    get 'logout', to: 'sessions#destroy', as: 'logout'
 
-get 'garages/new' => 'garages#new'
 
-get 'garages/:id' => 'garages#show', as: :garage
+  resources :sessions
 
-post 'garages/'  => 'garages#create'
+  resources :users
 
-get 'garages/:id/edit' => 'garages#edit', as: :edit_garage
+  root 'users#index'
 
-patch 'garages/:id' => 'garages#update'
+  get 'garages/' => 'garages#index'
 
-delete  'garages/:id' => 'garages#destroy'
+  get 'garages/new' => 'garages#new'
+
+  get 'garages/:id' => 'garages#show', as: :garage
+
+  post 'garages/'  => 'garages#create'
+
+  get 'garages/:id/edit' => 'garages#edit', as: :edit_garage
+
+  patch 'garages/:id' => 'garages#update'
+
+  delete  'garages/:id' => 'garages#destroy'
 
 end
