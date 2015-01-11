@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         # then see if user authenticates
         if user && user.authenticate(params[:password])
             # sets the cookie to the browser
-            session[:user_id] = user.id
+            session[:user_id] = user.id.to_s
             redirect_to root_url, notice: "Logged in!"
         else
             flash.now.alert = "Email or password is invalid"
